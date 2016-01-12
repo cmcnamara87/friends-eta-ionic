@@ -50,4 +50,5 @@
     <engine name="ios" spec="~3.9.2" />
     <plugin name="com.transistorsoft.cordova.background-geolocation" spec="https://github.com/transistorsoft/cordova-background-geolocation-lt.git" />
     <plugin name="cordova-plugin-inappbrowser" spec="~1.1.1" />
+    <plugin name="cordova-plugin-social-message" spec="~0.4.0" />
 </widget>

@@ -16,6 +16,7 @@
         vm.title = 'Etas';
         vm.doRefresh = doRefresh;
         vm.state = 'LOADING';
+        vm.invite = invite;
 
         var userId = 1;
 
@@ -24,18 +25,24 @@
         ////////
 
         function activate() {
-            if (window.localStorage['userId']) {
-                userId = window.localStorage['userId'];
-            }
-            else {
+            if (!window.localStorage['userId']) {
                 $state.go('tab.account');
+                return
             }
-
+            userId = window.localStorage['userId'];
             $ionicPlatform.ready(function () {
                 loadData(userId);
             });
+        }
 
-
+        function invite() {
+            if(window.socialmessage) {
+                var message = {
+                    text: "Checkout this app, FriendsETA. It let's you know how far away your friends are.",
+                    url: "http://friendseta.com/app"
+                };
+                window.socialmessage.send(message);
+            }
         }
 
         function loadData(userId) {
