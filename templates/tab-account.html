@@ -1,0 +1,25 @@
+<ion-view view-title="Account">
+    <ion-content>
+
+        <div class="list">
+            <div class="item">
+                <button class="button button-positive button-block" ng-click="vm.logout()">
+                    Logout
+                </button>
+            </div>
+            <a class="item" ng-click="autoupdate.check()">
+                <h2>
+                    {{ autoupdate.state }}
+                </h2>
+                <p>
+                    App Status
+                </p>
+            </a>
+            <!--<ion-radio ng-repeat="user in vm.users" ng-model="vm.chosenUser" ng-value="{{user.id}}"-->
+                       <!--ng-click="vm.changeUser(user.id)">-->
+                <!--{{user.name}}-->
+            <!--</ion-radio>-->
+        </div>
+
+    </ion-content>
+</ion-view>

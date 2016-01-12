@@ -1,0 +1,112 @@
+{
+    "files": {
+        "lib_ionic_js_ionic.bundle.js": {
+            "filename": "lib/ionic/js/ionic.bundle.js",
+            "version": "e411d8d6743c2e38ea035ad9ab1d3ebb839ce62dddbfc51428ec55c57748116a"
+        },
+        "css_ionic.app.css": {
+            "filename": "css/ionic.app.css",
+            "version": "829abe3c63f9ad8f89fb62b15cb6d3f3eae77b79797d1be11f1e0e06caa4d086"
+        },
+        "lib_ionic_fonts_ionicons.eot": {
+            "filename": "lib/ionic/fonts/ionicons.eot",
+            "version": "a4803d7bdeb478a5b9238fe74d8aaa98dafe2e8e68fccbd0e3f4dced823f27f0"
+        },
+        "lib_ionic_fonts_ionicons.svg": {
+            "filename": "lib/ionic/fonts/ionicons.svg",
+            "version": "a627d9068c1235d9b3c95c405eb6ecb64a290b159cf5e926c0d96d89b24cd5fc"
+        },
+        "lib_ionic_fonts_ionicons.ttf": {
+            "filename": "lib/ionic/fonts/ionicons.ttf",
+            "version": "2ba7f20b1d8990e17a47fe3d88e4c766628aaa2baf1dd30fca0a0db59836f5f9"
+        },
+        "lib_ionic_fonts_ionicons.woff": {
+            "filename": "lib/ionic/fonts/ionicons.woff",
+            "version": "709f2789daaff440820ebb975d3ae409af45121bdec47e39e83523490b1bc0fc"
+        },
+        "lib_lodash_lodash.js": {
+            "filename": "lib/lodash/lodash.js",
+            "version": "31ef498e961eaee57b5458cf0b6929da737338eb37a371f0fa720e7ba15db0fb"
+        },
+        "lib_angular_angular.js": {
+            "filename": "lib/angular/angular.js",
+            "version": "9a30224971ba19d73b34a1de0ffff57fa3561367f477fe81d62a17ce4b12a5aa"
+        },
+        "lib_openfb_openfb.js": {
+            "filename": "lib/openfb/openfb.js",
+            "version": "67aea25985d6efe8a9b4308823da48b6c911fdbe600c7480675a06175f34af5f"
+        },
+        "lib_ngCordova_dist_ng-cordova.js": {
+            "filename": "lib/ngCordova/dist/ng-cordova.js",
+            "version": "d80b4fa29049003f00c6aa9ccef927f23854ed581463472245dcecbb093b6a9d"
+        },
+        "js_cordova-app-loader-complete.js": {
+            "filename": "js/cordova-app-loader-complete.js",
+            "version": "76299c410fab485ec88d1e8765d935320fe4d172897d5f675fa410d66bd3f107"
+        },
+        "lib_openfb_ngopenfb.js": {
+            "filename": "lib/openfb/ngopenfb.js",
+            "version": "0011be5796c1bf186c1ff8be17539bcd83c1a827c447552c69882728ee3cfb66"
+        },
+        "js_templates.js": {
+            "filename": "js/templates.js",
+            "version": "0490d38fd44f8c41df66109067345277556b4f37195e73be6798c4254db4b07c"
+        },
+        "js_app.js": {
+            "filename": "js/app.js",
+            "version": "6448605be22cc957208ecf22e3fd11cc90f6523a24323d8015c8fa399cd9a326"
+        },
+        "js_accounts.controller.js": {
+            "filename": "js/accounts.controller.js",
+            "version": "844190f507af26beb97c2afae728d4d28a34cbc5436715a5361d94c6385d9786"
+        },
+        "js_autoupdate.service.js": {
+            "filename": "js/autoupdate.service.js",
+            "version": "a20e41789539d14d306c4cba8faefb77b8570c90ac30ab2d27beb8e88e54f7de"
+        },
+        "js_controllers.js": {
+            "filename": "js/controllers.js",
+            "version": "6f8058ab6d99b6f08de4a562cd2b2d2181f8dc850b9a5ab971e9aa57a9823e56"
+        },
+        "js_etas.controller.js": {
+            "filename": "js/etas.controller.js",
+            "version": "f626d94739ef1a428eecb0361210bdd971706968eb107043d75e18f569607984"
+        },
+        "js_intro.controller.js": {
+            "filename": "js/intro.controller.js",
+            "version": "8fc49cbc19991456444e642af35a97524cf31e7f53c00e1415b9e4ec64ab3406"
+        },
+        "js_login.controller.js": {
+            "filename": "js/login.controller.js",
+            "version": "cb8519a6471ecd2881be1714a800b8e1875150fc4380ab936abba89849543f05"
+        },
+        "js_services.js": {
+            "filename": "js/services.js",
+            "version": "617d37697d3eb2fd4f86f9af10e2e0e5b8eced7d7fbcea4c8e9a3ba6577df5e1"
+        }
+    },
+    "load": [
+        "lib/ionic/js/ionic.bundle.js",
+        "css/ionic.app.css",
+        "lib/ionic/fonts/ionicons.eot",
+        "lib/ionic/fonts/ionicons.svg",
+        "lib/ionic/fonts/ionicons.ttf",
+        "lib/ionic/fonts/ionicons.woff",
+        "lib/lodash/lodash.js",
+        "lib/angular/angular.js",
+        "lib/openfb/openfb.js",
+        "lib/ngCordova/dist/ng-cordova.js",
+        "js/cordova-app-loader-complete.js",
+        "lib/openfb/ngopenfb.js",
+        "js/templates.js",
+        "js/app.js",
+        "js/accounts.controller.js",
+        "js/autoupdate.service.js",
+        "js/controllers.js",
+        "js/etas.controller.js",
+        "js/intro.controller.js",
+        "js/login.controller.js",
+        "js/services.js"
+    ],
+    "root": "./"
+}
