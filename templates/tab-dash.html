@@ -6,8 +6,10 @@
         </ion-refresher>
         <ion-list>
             <ion-item ng-repeat="friend in vm.friends">
-                {{friend.name}}
-                {{friend.eta.eta / 60 | number:0}} Minutes
+                <h2>{{friend.name}}</h2>
+                <p>
+                    {{friend.eta.eta / 60 | number:0}} Minutes
+                </p>
             </ion-item>
             <ion-item>
                 <button class="button button-balanced button-block"
