@@ -1,13 +1,17 @@
 <ion-view view-title="Account">
-  <ion-content>
+    <ion-content>
 
-    <div class="list">
+        <div class="list">
+            <div class="item">
+                <button class="button button-positive button-block" ng-click="vm.logout()">
+                    Logout
+                </button>
+            </div>
+            <ion-radio ng-repeat="user in vm.users" ng-model="vm.chosenUser" ng-value="{{user.id}}"
+                       ng-click="vm.changeUser(user.id)">
+                {{user.name}}
+            </ion-radio>
+        </div>
 
-      <ion-radio ng-repeat="user in vm.users" ng-model="vm.chosenUser" ng-value="{{user.id}}" ng-click="vm.changeUser(user.id)">
-        {{user.name}}
-      </ion-radio>
-
-    </div>
-
-  </ion-content>
+    </ion-content>
 </ion-view>

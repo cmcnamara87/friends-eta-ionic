@@ -6,13 +6,16 @@
         .controller('EtasController', EtasController);
 
     /* @ngInject */
-    function EtasController($http, ENV, $ionicPlatform, $scope, $state) {
+    function EtasController($http, ENV, $ionicPlatform, $scope,
+                            $state,
+                            $q) {
         /* jshint validthis: true */
         var vm = this;
 
         vm.activate = activate;
         vm.title = 'Etas';
         vm.doRefresh = doRefresh;
+        vm.state = 'LOADING';
 
         var userId = 1;
 
@@ -36,26 +39,32 @@
         }
 
         function loadData(userId) {
+            getFriends()
+                .then(getLocation)
+                .then(sendLocation.bind(this, userId))
+                .then(getEtas.bind(this, userId));
+        }
+
+        function getLocation() {
+            var deferred = $q.defer();
+
             navigator.geolocation.getCurrentPosition(onSuccess, onError);
-
             function onSuccess(position) {
-                var firstLat = position.coords.latitude;
-                var firstLong = position.coords.longitude;
-
-                getFriends()
-                    .then(sendLocation.bind(this, userId, firstLat, firstLong))
-                    .then(getEtas.bind(this, userId))
+                deferred.resolve(position);
             }
 
-            // onError Callback receives a PositionError object
-            //
             function onError(error) {
                 alert('code: ' + error.code + '\n' +
                 'message: ' + error.message + '\n');
+                deferred.reject(error);
             }
+            return deferred.promise;
         }
 
-        function sendLocation(userId, lat, long) {
+
+        function sendLocation(userId, position) {
+            var lat = position.coords.latitude;
+            var long = position.coords.longitude;
             console.log('Sending location', lat, long);
             return $http.post(ENV.apiEndpoint + 'locations', {'user_id': userId, 'lat': lat, 'long': long});
         }
@@ -75,14 +84,13 @@
 
         function getFriends() {
             console.log('Getting friends');
-            return $http.get(ENV.apiEndpoint + 'users').then(function (response) {
+            return $http.get(ENV.apiEndpoint + 'users/'+ userId + '/friends').then(function (response) {
                 vm.friends = response.data;
                 console.log('Friends', vm.friends);
                 return vm.friends;
             });
         }
-
-
+        
         function doRefresh() {
             userId = window.localStorage['userId'];
             console.log('Refresh locations');
