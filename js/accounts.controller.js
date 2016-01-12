@@ -21,7 +21,7 @@ function AccountsController ($http, ENV, $state, ngFB, $ionicPlatform, autoupdat
     ////////////////
 
     function activate() {
-        $scope.autoupdate = autoupdate;
+        vm.autoupdate = autoupdate;
         $ionicPlatform.ready(function () {
             console.log('fb access tplen', window.localStorage.fbAccessToken);
 
