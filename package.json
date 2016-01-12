@@ -7,7 +7,14 @@
     "gulp-sass": "^2.0.4",
     "gulp-concat": "^2.2.0",
     "gulp-minify-css": "^0.3.0",
-    "gulp-rename": "^1.2.0"
+    "gulp-rename": "^1.2.0",
+
+    "gulp-add-src": "0.2.0",
+    "gulp-angular-filesort": "1.1.1",
+    "gulp-angular-templatecache": "1.8.0",
+    "gulp-cordova-app-loader-manifest": "git+https://github.com/AlexanderBeyn/gulp-cordova-app-loader-manifest.git",
+    "gulp-gh-pages": "0.5.4",
+    "main-bower-files": "2.9.0"
   },
   "devDependencies": {
     "bower": "^1.3.3",

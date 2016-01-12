@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ionicframework.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>HelloCordova</name>
+<widget id="com.funaware.friendseta" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>FriendsETA</name>
     <description>
         An Ionic Framework and Cordova project.
     </description>
@@ -51,4 +51,6 @@
     <plugin name="com.transistorsoft.cordova.background-geolocation" spec="https://github.com/transistorsoft/cordova-background-geolocation-lt.git" />
     <plugin name="cordova-plugin-inappbrowser" spec="~1.1.1" />
     <plugin name="cordova-plugin-social-message" spec="~0.4.0" />
+    <plugin name="cordova-plugin-file" spec="~3.0.0" />
+    <plugin name="cordova-plugin-file-transfer" spec="~1.4.0" />
 </widget>

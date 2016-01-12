@@ -7,8 +7,12 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('friendsEta', ['ionic', 'ngOpenFB'])
 
-    .run(function ($ionicPlatform, $http, ENV, ngFB, $state) {
+    .run(function ($ionicPlatform, $http, ENV, ngFB, $state,
+                   autoupdate) {
         // if not logged in, go to login page
+
+        // Check for updates
+        autoupdate.bootstrapOk();
 
         $ionicPlatform.ready(function () {
 
@@ -198,3 +202,9 @@ angular.module('friendsEta', ['ionic', 'ngOpenFB'])
         $urlRouterProvider.otherwise('/tab/dash');
 
     });
+
+setTimeout(function() {
+    angular.element(document).ready(function() {
+        angular.bootstrap(document, ['friendsEta']);
+    });
+}, 0);
