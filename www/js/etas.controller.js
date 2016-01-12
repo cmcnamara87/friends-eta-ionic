@@ -26,7 +26,7 @@
 
         function activate() {
             if (!window.localStorage['userId']) {
-                $state.go('tab.account');
+                $state.go('intro');
                 return
             }
             userId = window.localStorage['userId'];

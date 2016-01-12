@@ -50,15 +50,15 @@
         },
         "js_templates.js": {
             "filename": "js/templates.js",
-            "version": "0490d38fd44f8c41df66109067345277556b4f37195e73be6798c4254db4b07c"
+            "version": "2d767e6d0e9ebb0d7afc107a7e83155f9810bc32daf8b2cb9e6cf9eebedbc6b9"
         },
         "js_app.js": {
             "filename": "js/app.js",
-            "version": "6448605be22cc957208ecf22e3fd11cc90f6523a24323d8015c8fa399cd9a326"
+            "version": "130d0f3b0e30273ce1d3f86268ffd242981fb12127bb2c5efe679a4c3e819a2c"
         },
         "js_accounts.controller.js": {
             "filename": "js/accounts.controller.js",
-            "version": "4625cdf1dab9349b907f4a104c9cc31e5a76138d08d10722487eecb901c01f4c"
+            "version": "4dc8fa11a226e0cedb65cd860a457ef5e573ee708757ec61cc51cb6476b296a6"
         },
         "js_autoupdate.service.js": {
             "filename": "js/autoupdate.service.js",
@@ -70,7 +70,7 @@
         },
         "js_etas.controller.js": {
             "filename": "js/etas.controller.js",
-            "version": "016ff9bfb938f0420e934c5bd9090dbd1c3d223b52bcbe50b0d989299915fd0f"
+            "version": "f626d94739ef1a428eecb0361210bdd971706968eb107043d75e18f569607984"
         },
         "js_intro.controller.js": {
             "filename": "js/intro.controller.js",

@@ -6,7 +6,7 @@ angular
     .controller('AccountsController', AccountsController);
 
 /* @ngInject */
-function AccountsController ($http, ENV, $state, ngFB, $ionicPlatform) {
+function AccountsController ($http, ENV, $state, ngFB, $ionicPlatform, autoupdate) {
     /* jshint validthis: true */
     var vm = this;
 
@@ -21,6 +21,7 @@ function AccountsController ($http, ENV, $state, ngFB, $ionicPlatform) {
     ////////////////
 
     function activate() {
+        vm.autoupdate = autoupdate;
         $ionicPlatform.ready(function () {
             console.log('fb access tplen', window.localStorage.fbAccessToken);
 
