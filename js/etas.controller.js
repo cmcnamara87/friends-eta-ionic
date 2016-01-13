@@ -48,8 +48,9 @@
         function loadData(userId) {
             getFriends()
                 .then(getLocation)
-                .then(sendLocation.bind(this, userId))
-                .then(getEtas.bind(this, userId));
+                .then(sendLocation.bind(null, userId))
+                .then(getEtas.bind(null, userId))
+                .then(finished);
         }
 
         function getLocation() {
@@ -90,6 +91,10 @@
                 });
                 $scope.$broadcast('scroll.refreshComplete');
             });
+        }
+
+        function finished() {
+            vm.state = 'Finished.';
         }
 
         function getFriends() {
