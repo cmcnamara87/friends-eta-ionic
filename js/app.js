@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('friendsEta', ['ionic', 'ngOpenFB', 'templates'])
+angular.module('friendsEta', ['ionic', 'ngOpenFB', 'templates', 'ngCordova'])
 
     .run(function ($ionicPlatform, $http, ENV, ngFB, $state,
                    autoupdate) {

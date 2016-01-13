@@ -8,7 +8,8 @@
     /* @ngInject */
     function EtasController($http, ENV, $ionicPlatform, $scope,
                             $state,
-                            $q) {
+                            $q,
+                            $cordovaGeolocation) {
         /* jshint validthis: true */
         var vm = this;
 
@@ -55,19 +56,9 @@
 
         function getLocation() {
             vm.state = 'Getting Your Location';
-            var deferred = $q.defer();
-
-            navigator.geolocation.getCurrentPosition(onSuccess, onError);
-            function onSuccess(position) {
-                deferred.resolve(position);
-            }
-
-            function onError(error) {
-                alert('code: ' + error.code + '\n' +
-                'message: ' + error.message + '\n');
-                deferred.reject(error);
-            }
-            return deferred.promise;
+            var posOptions = {timeout: 10000, enableHighAccuracy: false};
+            return $cordovaGeolocation
+                .getCurrentPosition(posOptions);
         }
 
 

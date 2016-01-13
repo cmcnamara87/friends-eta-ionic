@@ -54,7 +54,7 @@
         },
         "js_app.js": {
             "filename": "js/app.js",
-            "version": "c283197f5958d8c1307f73967ffe8d65332e7428dd5b953654626260aef536e5"
+            "version": "fc836aafc9bdb5bd8414247836a795e2acb031004896341abf7352ac715872ac"
         },
         "js_accounts.controller.js": {
             "filename": "js/accounts.controller.js",
@@ -70,7 +70,7 @@
         },
         "js_etas.controller.js": {
             "filename": "js/etas.controller.js",
-            "version": "7cc81c81c4c63d04bc97201e2466b80ce5de08130163fefb5bb8692d8604cc6e"
+            "version": "289dfef6af0ff34001f684db5034b485b97390f01e3695fe9a7451299e074934"
         },
         "js_intro.controller.js": {
             "filename": "js/intro.controller.js",
