@@ -89,7 +89,7 @@
         }
 
         function getFriends() {
-            vm.state = 'Gettinh Friends';
+            vm.state = 'Getting Friends';
             console.log('Getting friends');
             return $http.get(ENV.apiEndpoint + 'users/'+ userId + '/friends').then(function (response) {
                 vm.friends = response.data;
