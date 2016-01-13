@@ -53,6 +53,7 @@
         }
 
         function getLocation() {
+            vm.state = 'Getting Your Location';
             var deferred = $q.defer();
 
             navigator.geolocation.getCurrentPosition(onSuccess, onError);
@@ -70,6 +71,7 @@
 
 
         function sendLocation(userId, position) {
+            vm.state = 'Sending Your Location';
             var lat = position.coords.latitude;
             var long = position.coords.longitude;
             console.log('Sending location', lat, long);
@@ -77,6 +79,7 @@
         }
 
         function getEtas(userId) {
+            vm.state = 'Calculating ETAs';
             console.log('Getting user ETAs for user', userId);
             return $http.get(ENV.apiEndpoint + 'users/'+ userId + '/etas').then(function(response){
                 vm.etas = response.data;
@@ -90,6 +93,7 @@
         }
 
         function getFriends() {
+            vm.state = 'Gettinh Friends';
             console.log('Getting friends');
             return $http.get(ENV.apiEndpoint + 'users/'+ userId + '/friends').then(function (response) {
                 vm.friends = response.data;
