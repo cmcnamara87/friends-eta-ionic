@@ -8,7 +8,8 @@
     /* @ngInject */
     function EtasController($http, ENV, $ionicPlatform, $scope,
                             $state,
-                            $q) {
+                            $q,
+                            $cordovaGeolocation) {
         /* jshint validthis: true */
         var vm = this;
 
@@ -48,28 +49,21 @@
         function loadData(userId) {
             getFriends()
                 .then(getLocation)
-                .then(sendLocation.bind(this, userId))
-                .then(getEtas.bind(this, userId));
+                .then(sendLocation.bind(null, userId))
+                .then(getEtas.bind(null, userId))
+                .then(finished);
         }
 
         function getLocation() {
-            var deferred = $q.defer();
-
-            navigator.geolocation.getCurrentPosition(onSuccess, onError);
-            function onSuccess(position) {
-                deferred.resolve(position);
-            }
-
-            function onError(error) {
-                alert('code: ' + error.code + '\n' +
-                'message: ' + error.message + '\n');
-                deferred.reject(error);
-            }
-            return deferred.promise;
+            vm.state = 'Getting Your Location';
+            var posOptions = {timeout: 10000, enableHighAccuracy: false};
+            return $cordovaGeolocation
+                .getCurrentPosition(posOptions);
         }
 
 
         function sendLocation(userId, position) {
+            vm.state = 'Sending Your Location';
             var lat = position.coords.latitude;
             var long = position.coords.longitude;
             console.log('Sending location', lat, long);
@@ -77,6 +71,7 @@
         }
 
         function getEtas(userId) {
+            vm.state = 'Calculating ETAs';
             console.log('Getting user ETAs for user', userId);
             return $http.get(ENV.apiEndpoint + 'users/'+ userId + '/etas').then(function(response){
                 vm.etas = response.data;
@@ -89,7 +84,12 @@
             });
         }
 
+        function finished() {
+            vm.state = 'Finished.';
+        }
+
         function getFriends() {
+            vm.state = 'Getting Friends';
             console.log('Getting friends');
             return $http.get(ENV.apiEndpoint + 'users/'+ userId + '/friends').then(function (response) {
                 vm.friends = response.data;

@@ -14,8 +14,11 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="16" />
     <preference name="BackupWebStorage" value="none" />
+
     <preference name="SplashScreen" value="screen" />
-    <preference name="SplashScreenDelay" value="3000" />
+    <preference name="AutoHideSplashScreen" value="false" />
+
+    <preference name="ShowSplashScreenSpinner" value="true" />
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
@@ -54,4 +57,7 @@
     <plugin name="cordova-plugin-file" spec="~3.0.0" />
     <plugin name="cordova-plugin-file-transfer" spec="~1.4.0" />
     <plugin name="com.phonegap.plugins.PushPlugin" spec="https://github.com/phonegap-build/PushPlugin.git" />
+    <plugin name="cordova-plugin-geolocation" spec="~1.0.1" />
+    <icon src="resources/ios/icon/icon-small@3x.png" />
+    <plugin name="cordova-plugin-splashscreen" spec="~3.0.0" />
 </widget>

@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('friendsEta', ['ionic', 'ngOpenFB', 'templates'])
+angular.module('friendsEta', ['ionic', 'ngOpenFB', 'templates', 'ngCordova'])
 
     .run(function ($ionicPlatform, $http, ENV, ngFB, $state,
                    autoupdate) {
@@ -36,6 +36,9 @@ angular.module('friendsEta', ['ionic', 'ngOpenFB', 'templates'])
             if (window.cordova) {
                 // Add in app browser open
                 window.open = cordova.InAppBrowser.open;
+            }
+            if (navigator.splashscreen) {
+                navigator.splashscreen.hide();
             }
 
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -88,14 +91,14 @@ angular.module('friendsEta', ['ionic', 'ngOpenFB', 'templates'])
                 // BackgroundGeoLocation is highly configurable.
                 bgGeo.configure(callbackFn, failureFn, {
                     // Geolocation config
-                    desiredAccuracy: 0,
-                    stationaryRadius: 50,
-                    distanceFilter: 50,
+                    desiredAccuracy: 100, // 0 10 100 100
+                    stationaryRadius: 50, // min 50 meters from stationary before change is detected
+                    distanceFilter: 200, // detect change every 200m when walking
                     disableElasticity: false, // <-- [iOS] Default is 'false'.  Set true to disable speed-based distanceFilter elasticity
                     locationUpdateInterval: 5000,
                     minimumActivityRecognitionConfidence: 80,   // 0-100%.  Minimum activity-confidence for a state-change
                     fastestLocationUpdateInterval: 5000,
-                    activityRecognitionInterval: 10000,
+                    activityRecognitionInterval: 300000, // 5 minutes between updates
                     stopDetectionDelay: 1,  // Wait x minutes to engage stop-detection system
                     stopTimeout: 2,  // Wait x miutes to turn off location system after stop-detection
                     activityType: 'AutomotiveNavigation',
