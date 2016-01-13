@@ -37,6 +37,9 @@ angular.module('friendsEta', ['ionic', 'ngOpenFB', 'templates', 'ngCordova'])
                 // Add in app browser open
                 window.open = cordova.InAppBrowser.open;
             }
+            if (navigator.splashscreen) {
+                navigator.splashscreen.hide();
+            }
 
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
