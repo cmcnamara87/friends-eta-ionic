@@ -107,7 +107,7 @@ angular.module('friendsEta', ['ionic', 'ngOpenFB', 'templates', 'ngCordova'])
                     activityType: 'AutomotiveNavigation',
 
                     // Application config
-                    debug: true // <-- enable this hear sounds for background-geolocation life-cycle.
+                    debug: debug // <-- enable this hear sounds for background-geolocation life-cycle.
                     //forceReloadOnLocationChange: false,  // <-- [Android] If the user closes the app **while location-tracking is started** , reboot app when a new location is recorded (WARNING: possibly distruptive to user)
                     //forceReloadOnMotionChange: false,    // <-- [Android] If the user closes the app **while location-tracking is started** , reboot app when device changes stationary-state (stationary->moving or vice-versa) --WARNING: possibly distruptive to user)
                     //forceReloadOnGeofence: false,        // <-- [Android] If the user closes the app **while location-tracking is started** , reboot app when a geofence crossing occurs --WARNING: possibly distruptive to user)
