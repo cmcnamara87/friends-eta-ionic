@@ -15,12 +15,16 @@ function AccountsController ($http, ENV, $state, ngFB, $ionicPlatform, autoupdat
     vm.chosenUser;
     vm.changeUser = changeUser;
     vm.logout = logout;
+    vm.debugGeolocation = debugGeolocation;
 
     activate();
 
     ////////////////
 
     function activate() {
+        var debug = localStorage.debug == 'true' ? true : false;
+        vm.debug = debug;
+
         vm.autoupdate = autoupdate;
         $ionicPlatform.ready(function () {
             console.log('fb access tplen', window.localStorage.fbAccessToken);
@@ -42,6 +46,14 @@ function AccountsController ($http, ENV, $state, ngFB, $ionicPlatform, autoupdat
         ngFB.logout().then(function() {
             $state.go('intro');
         })
+    }
+
+    function debugGeolocation() {
+        // invert it
+        var debug = localStorage.debug == 'true' ? true : false;
+        debug = !debug;
+        localStorage.debug = debug;
+        vm.debug = debug;
     }
 
 

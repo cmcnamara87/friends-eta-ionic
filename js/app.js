@@ -56,6 +56,9 @@ angular.module('friendsEta', ['ionic', 'ngOpenFB', 'templates', 'ngCordova'])
                 // Get a reference to the plugin.
                 var bgGeo = window.BackgroundGeolocation;
 
+
+                // debug geo
+                var debug = localStorage.debug == 'true' ? true : false;
                 /**
                  * This callback will be executed every time a geolocation is recorded in the background.
                  */
