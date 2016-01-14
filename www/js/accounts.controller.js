@@ -40,7 +40,7 @@ function AccountsController ($http, ENV, $state, ngFB, $ionicPlatform, autoupdat
 
     function logout() {
         ngFB.logout().then(function() {
-            $state.go('login');
+            $state.go('intro');
         })
     }
 

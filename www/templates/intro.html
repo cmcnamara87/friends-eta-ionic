@@ -1,26 +1,51 @@
-<ion-view view-title="Intro" hide-nav-bar="true" style="background-color: #FF6B6B;color: white;text-align: center;">
+
+<ion-view view-title="Intro" hide-nav-bar="true"
+          style="background-color: #4ECDC4;color: white;" class="onboarding">
     <ion-content class="padding">
+        <style>
+
+        </style>
         <!-- Show login button -->
-        <h1 style="color:white;">FriendsETA</h1>
-        <p>Always know how far away your Facebook friends are, without revealing your locations.
-        </p>
-        <!--<div class="padding">-->
-            <!--<div style="border: 1px solid red;padding: 10px 15px; overflow: auto;border-radius:5px;">-->
+        <div style="margin-top: -30px;">
+            <div>
+                <!--<img src="http://cmcnamara87.github.io/friends-eta-ionic/img/icon.png" alt="" style="width:70px;margin-bottom: 10px;"/>-->
+            </div>
 
-                <!--<img style="width:40px;float:left;border-radius:50px;margin-right: 10px;"-->
-                     <!--src="https://scontent-lax3-1.xx.fbcdn.net/hphotos-frc3/v/t1.0-9/10616375_10152367709402615_5025993933117187205_n.jpg?oh=7aeb2b526d7a93ab8e1c48aa024502d9&oe=56FCDD62"-->
-                     <!--alt=""/>-->
+            <h1 style="color:white;font-weight:400;margin: 0;margin-bottom:10px;font-size:24px;">FriendsETA</h1>
 
-                <!--<div style="overflow:auto">-->
-                    <!--<p style="font-weight: bold;margin-bottom:0;">Craig McNamara</p>-->
-                    <!--<p>5 minutes away</p>-->
-                <!--</div>-->
+            <div class="padding">
+                <p style="font-size:18px;font-weight:lighter;line-height: 1.4">Always know how far away your Facebook friends are, without revealing your locations.
+                </p>
+            </div>
 
-            <!--</div>-->
-        <!--</div>-->
+            <div class="padding" style="margin-top:10px;">
+                <p style="font-weight: bold;margin-bottom:10px;font-size:14px;">Just like this!</p>
+                <p style="opacity:1">💁 Where is Ankith? Should we just order?</p>
+                <div style="text-align:left;border: 1px solid #1db2b2;padding: 15px 15px; overflow: auto;border-radius:5px;background-color:white;color:#8093a8;">
 
-        <button class="button button-block button-light" ng-click="vm.next()">
-            Get Started
-        </button>
+                    <img style="width:40px;float:left;border-radius:50px;margin-right: 10px;"
+                         src="http://cmcnamara87.github.io/friends-eta-ionic/img/ankith.jpg"
+                         alt=""/>
+
+                    <div style="overflow:auto">
+                        <p style="font-weight: bold;margin-bottom:0;">Ankith Honda</p>
+                        <p style="margin:0;">🚗 15 minutes away</p>
+                    </div>
+                </div>
+                <p style="opacity:1;margin-top:10px;">👨 15 mins? He is always late, lets order!</p>
+            </div>
+
+            <p>
+                <!--<img src="img/map-1.png" alt="" style="position:absolute;top:-10px;left:-10px;right:-10px;bottom:0;opacity:0.2;z-index:-1;"/>-->
+            </p>
+        </div>
     </ion-content>
+    <!-- align to the bottom of the page -->
+    <div style="position: absolute; bottom: 0px; width: 100%">
+        <div style="text-align: center;padding:10px 20px;">
+            <button class="button button-block button-positive" ng-click="vm.next()" >
+                Get Started
+            </button>
+        </div>
+    </div>
 </ion-view>
