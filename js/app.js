@@ -153,6 +153,11 @@ angular.module('friendsEta', ['ionic', 'ngOpenFB', 'templates', 'ngCordova'])
                 controller: 'LoginController as vm',
                 templateUrl: 'templates/login.html'
             })
+            .state('login-success', {
+                url: '/login-success',
+                controller: 'LoginSuccessController as vm',
+                templateUrl: 'templates/login-success.html'
+            })
             // setup an abstract state for the tabs directive
             .state('tab', {
                 url: '/tab',

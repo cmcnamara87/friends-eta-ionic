@@ -6,7 +6,7 @@
         },
         "css_ionic.app.css": {
             "filename": "css/ionic.app.css",
-            "version": "06321a3662f73130c53b260da5aec1aaec8ba3eddae5eabdfe011b0df4a3ded5"
+            "version": "09fc48381ec27e0b48049482589442f9fdee8e36a755c799d282fab254e6d76c"
         },
         "lib_ionic_fonts_ionicons.eot": {
             "filename": "lib/ionic/fonts/ionicons.eot",
@@ -50,15 +50,15 @@
         },
         "js_templates.js": {
             "filename": "js/templates.js",
-            "version": "23989be4e069e4fe1642191182fb9a67ee09136669888856e1f1ef28230a27f7"
+            "version": "d516e7b741ef5b1c10c473e0b5cfbd8ec95c358f526fe7d654cb621b3f5d29d6"
         },
         "js_app.js": {
             "filename": "js/app.js",
-            "version": "7b2bf5a3e0322b5d1b1e2f3d7bf00981d54afde32adebf8fbf94d8e4f7bffc57"
+            "version": "60441ffb734ad576fa58da2fc723e567c8b787e751cdfff4a3abf59194db64c2"
         },
         "js_accounts.controller.js": {
             "filename": "js/accounts.controller.js",
-            "version": "4dc8fa11a226e0cedb65cd860a457ef5e573ee708757ec61cc51cb6476b296a6"
+            "version": "e97c0080a360546ab0bc077deafb1737acef88e1b373b9888c05b02f63f491b9"
         },
         "js_autoupdate.service.js": {
             "filename": "js/autoupdate.service.js",
@@ -76,9 +76,13 @@
             "filename": "js/intro.controller.js",
             "version": "8fc49cbc19991456444e642af35a97524cf31e7f53c00e1415b9e4ec64ab3406"
         },
+        "js_login-success.controller.js": {
+            "filename": "js/login-success.controller.js",
+            "version": "997937394694bcf33dacd4caed8829521cdf7f5e780bc38b72a86bb3bfca4aae"
+        },
         "js_login.controller.js": {
             "filename": "js/login.controller.js",
-            "version": "cb8519a6471ecd2881be1714a800b8e1875150fc4380ab936abba89849543f05"
+            "version": "ccd812dc18bcfcf882cea7944d9fd8f2f7ec21cafe313909a72aa65e78384c29"
         },
         "js_services.js": {
             "filename": "js/services.js",
@@ -105,6 +109,7 @@
         "js/controllers.js",
         "js/etas.controller.js",
         "js/intro.controller.js",
+        "js/login-success.controller.js",
         "js/login.controller.js",
         "js/services.js"
     ],

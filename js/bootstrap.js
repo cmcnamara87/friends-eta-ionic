@@ -114,7 +114,7 @@
     }
 //---------------------------------------------------------------------
     window.Manifest = {};
-    //localStorage.removeItem('manifest');
+    localStorage.removeItem('manifest');
 // Step 1: Load manifest from localStorage
     var manifest = JSON.parse(localStorage.getItem('manifest'));
     console.log('stored manfiest', manifest);
