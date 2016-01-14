@@ -50,15 +50,15 @@
         },
         "js_templates.js": {
             "filename": "js/templates.js",
-            "version": "a7ab02d43e02a702b86b8969fc6e3a5720479e39f04ce60c40a6921b53141ab7"
+            "version": "0984c649ef42288a84f0b8fcdfb5a94634a2cae35247ac2380586ada840ca225"
         },
         "js_app.js": {
             "filename": "js/app.js",
-            "version": "60441ffb734ad576fa58da2fc723e567c8b787e751cdfff4a3abf59194db64c2"
+            "version": "a70308266846eb9e7c7fb00e9f14b8df7c4dfdd76ac4697f0d871e91447ba184"
         },
         "js_accounts.controller.js": {
             "filename": "js/accounts.controller.js",
-            "version": "e97c0080a360546ab0bc077deafb1737acef88e1b373b9888c05b02f63f491b9"
+            "version": "e7312bbf13ae1234974c1adeb4c29c3840b81bc8671af2ff6b435f67decb2b76"
         },
         "js_autoupdate.service.js": {
             "filename": "js/autoupdate.service.js",
