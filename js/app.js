@@ -15,7 +15,6 @@ angular.module('friendsEta', ['ionic', 'ngOpenFB', 'templates', 'ngCordova'])
         autoupdate.bootstrapOk();
 
         $ionicPlatform.ready(function () {
-
             // facebook
             ngFB.init({
                 appId: '1045435845519655',
