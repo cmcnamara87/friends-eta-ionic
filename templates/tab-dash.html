@@ -10,7 +10,10 @@
             </ion-item>
             <ion-item ng-repeat="friend in vm.friends">
                 <h2>{{friend.name}}</h2>
-                <p>
+                <p ng-hide="friend.eta">
+                    No ETA available.
+                </p>
+                <p ng-show="friend.eta">
                     {{friend.eta.eta / 60 | number:0}} Minutes
                 </p>
             </ion-item>
