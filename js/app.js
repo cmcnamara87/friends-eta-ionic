@@ -8,7 +8,7 @@
 angular.module('friendsEta', ['ionic', 'ngOpenFB', 'templates', 'ngCordova'])
 
     .run(function ($ionicPlatform, $http, ENV, ngFB, $state,
-                   autoupdate) {
+                   autoupdate, friendsService) {
         // if not logged in, go to login page
 
         // Check for updates
@@ -30,6 +30,9 @@ angular.module('friendsEta', ['ionic', 'ngOpenFB', 'templates', 'ngCordova'])
                 }
             });
 
+            $ionicPlatform.on('resume', function(){
+                friendsService.updateFriendsFromFacebook();
+            });
 
             // in app browser
             if (window.cordova) {
@@ -74,16 +77,12 @@ angular.module('friendsEta', ['ionic', 'ngOpenFB', 'templates', 'ngCordova'])
                     if (window.localStorage['userId']) {
                         console.log('Has user id, so sending lat long');
                         var userId = window.localStorage['userId'];
-                        $http.post(ENV.apiEndpoint + 'locations', {'user_id': userId, 'lat': lat, 'long': long});
+                        $http.post(ENV.apiEndpoint + 'locations', {'user_id': userId, 'lat': lat, 'long': long}).then(function() {
+                            bgGeo.finish(taskId); // <-- execute #finish when your work in callbackFn is complete
+                        });
                     } else {
                         console.log('no user id');
                     }
-
-                    // Simulate doing some extra work with a bogus setTimeout.  This could perhaps be an Ajax request to your server.
-                    // The point here is that you must execute bgGeo.finish after all asynchronous operations within the callback are complete.
-                    setTimeout(function() {
-                        bgGeo.finish(taskId); // <-- execute #finish when your work in callbackFn is complete
-                    }, 1000);
                 };
 
                 var failureFn = function(error) {
@@ -97,9 +96,9 @@ angular.module('friendsEta', ['ionic', 'ngOpenFB', 'templates', 'ngCordova'])
                     stationaryRadius: 50, // min 50 meters from stationary before change is detected
                     distanceFilter: 200, // detect change every 200m when walking
                     disableElasticity: false, // <-- [iOS] Default is 'false'.  Set true to disable speed-based distanceFilter elasticity
-                    locationUpdateInterval: 5000,
+                    locationUpdateInterval: 120000, // every 2 minutes
                     minimumActivityRecognitionConfidence: 80,   // 0-100%.  Minimum activity-confidence for a state-change
-                    fastestLocationUpdateInterval: 5000,
+                    //fastestLocationUpdateInterval: 30000, //
                     activityRecognitionInterval: 300000, // 5 minutes between updates
                     stopDetectionDelay: 1,  // Wait x minutes to engage stop-detection system
                     stopTimeout: 2,  // Wait x miutes to turn off location system after stop-detection
