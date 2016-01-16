@@ -39,8 +39,8 @@
         function invite() {
             if(window.socialmessage) {
                 var message = {
-                    text: "Checkout this app, FriendsETA. It let's you know how far away your friends are.",
-                    url: "http://friendseta.com/app"
+                    text: "Checkout this app, FriendsETA. It let's you know how many minutes far away your Facebook friends are. Search for FriendsETA in the App store."
+                    //url: "http://friendseta.com/app"
                 };
                 window.socialmessage.send(message);
             }
