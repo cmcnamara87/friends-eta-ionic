@@ -6,7 +6,7 @@
         .controller('LoginSuccessController', LoginSuccessController);
 
     /* @ngInject */
-    function LoginSuccessController(ngFB, ENV, $state, $http) {
+    function LoginSuccessController(ngFB, ENV, $state, $http, friendsService) {
         /* jshint validthis: true */
         var vm = this;
 
@@ -28,8 +28,7 @@
                     // save the user
                     return loginUser(user);
                 })
-                .then(getFriendsUsingApp)
-                .then(saveFriends)
+                .then(friendsService.updateFriendsFromFacebook)
                 .then(goToDash);
         }
 
@@ -39,23 +38,6 @@
                     fields: 'email,name'
                 }
             });
-        }
-
-        function getFriendsUsingApp() {
-            return ngFB.api({
-                path: '/me/friends'
-            });
-        }
-        function saveFriends(friendsData) {
-            console.log('Should save friends', friendsData);
-            var friends = _.map(friendsData.data, function(fbFriend) {
-                return {
-                    fb_id: fbFriend.id
-                };
-            });
-            // post friends to server
-            var userId = window.localStorage['userId'];
-            return $http.post(ENV.apiEndpoint + 'users/'+ userId + '/friends', friends);
         }
 
         function loginUser(user) {
