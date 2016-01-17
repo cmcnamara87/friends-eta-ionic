@@ -85,7 +85,7 @@
         }
 
         function finished() {
-            vm.state = 'Finished.';
+            vm.state = 'Friends';
         }
 
         function getFriends() {
