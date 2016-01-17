@@ -11,7 +11,7 @@
                     No ETA available.
                 </p>
                 <p ng-show="friend.eta">
-                    {{friend.eta.eta / 60 | number:0}} Minutes (<span am-time-ago="friend.eta.last_seen_at"></span>)
+                    {{friend.eta.eta / 60 | number:0}} min away (<span am-time-ago="friend.eta.last_seen_at"></span>)
                 </p>
             </ion-item>
             <ion-item>
