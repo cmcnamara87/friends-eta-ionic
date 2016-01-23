@@ -94,16 +94,19 @@ angular.module('friendsEta', ['ionic', 'ngOpenFB', 'templates',
                 bgGeo.configure(callbackFn, failureFn, {
                     // Geolocation config
                     desiredAccuracy: 100, // 0 10 100 100
-                    stationaryRadius: 50, // min 50 meters from stationary before change is detected
-                    distanceFilter: 200, // detect change every 200m when walking
+                    //distanceFilter: 200, // detect change every 200m when walking -> default of 30
+                    //stationaryRadius: 50, // min 50 meters from stationary before change is detected -> default of 20
+                    //activityType: 'AutomotiveNavigation', // default 'other', maybe this will make walking work?
                     disableElasticity: false, // <-- [iOS] Default is 'false'.  Set true to disable speed-based distanceFilter elasticity
-                    locationUpdateInterval: 120000, // every 2 minutes
-                    minimumActivityRecognitionConfidence: 80,   // 0-100%.  Minimum activity-confidence for a state-change
+
+                    //activityRecognitionInterval: 60000, // 1 minute? i dont know -> default 10 seconds
+                    //stopDetectionDelay: 1,  // Wait x minutes to engage stop-detection system -> default 0
+                    stopTimeout: 1,  // Wait x miutes to turn off location system after stop-detection -> this is for traffic lights
+
+                    // for android, so i dont care
+                    //locationUpdateInterval: 120000, // every 2 minutes
                     //fastestLocationUpdateInterval: 30000, //
-                    activityRecognitionInterval: 300000, // 5 minutes between updates
-                    stopDetectionDelay: 1,  // Wait x minutes to engage stop-detection system
-                    stopTimeout: 2,  // Wait x miutes to turn off location system after stop-detection
-                    activityType: 'AutomotiveNavigation',
+                    //minimumActivityRecognitionConfidence: 80,   // 0-100%.  Minimum activity-confidence for a state-change
 
                     // Application config
                     debug: debug // <-- enable this hear sounds for background-geolocation life-cycle.
