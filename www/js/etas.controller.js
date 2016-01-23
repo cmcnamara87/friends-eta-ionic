@@ -36,11 +36,15 @@
             });
         }
 
+        /**
+         * Send an invite message to users via share sheet
+         */
         function invite() {
+            console.log('Sending Invite');
             if(window.socialmessage) {
                 var message = {
-                    text: "Checkout this app, FriendsETA. It let's you know how far away your friends are.",
-                    url: "http://friendseta.com/app"
+                    text: "Checkout this app, FriendsETA. It let's you know how many minutes far away your Facebook friends are.",
+                    url: "https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1076074655&mt=8"
                 };
                 window.socialmessage.send(message);
             }
@@ -85,7 +89,7 @@
         }
 
         function finished() {
-            vm.state = 'Finished.';
+            vm.state = 'Friends';
         }
 
         function getFriends() {

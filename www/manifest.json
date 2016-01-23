@@ -36,9 +36,17 @@
             "filename": "lib/openfb/openfb.js",
             "version": "67aea25985d6efe8a9b4308823da48b6c911fdbe600c7480675a06175f34af5f"
         },
+        "lib_moment_moment.js": {
+            "filename": "lib/moment/moment.js",
+            "version": "330b77f348bc97849800b9f3af7d1fe52fb6e145525ad494149d7a202c0c3cbf"
+        },
         "lib_ngCordova_dist_ng-cordova.js": {
             "filename": "lib/ngCordova/dist/ng-cordova.js",
             "version": "d80b4fa29049003f00c6aa9ccef927f23854ed581463472245dcecbb093b6a9d"
+        },
+        "lib_angular-moment_angular-moment.js": {
+            "filename": "lib/angular-moment/angular-moment.js",
+            "version": "44c05e91c516897260bd895e828f1349614d4d3ce6ad14ad976d7f461a4fc176"
         },
         "js_cordova-app-loader-complete.js": {
             "filename": "js/cordova-app-loader-complete.js",
@@ -50,11 +58,11 @@
         },
         "js_templates.js": {
             "filename": "js/templates.js",
-            "version": "0984c649ef42288a84f0b8fcdfb5a94634a2cae35247ac2380586ada840ca225"
+            "version": "f90002d33d54d0718ec582e3cae51da2f2e9717a650ac2ff5a854640e02ac100"
         },
         "js_app.js": {
             "filename": "js/app.js",
-            "version": "7f130ebc3edb1733c9f99eaaa9343c7ee85840b89dcaf8e602b3b6f7ea7ed1f1"
+            "version": "e86c94c565ca890fabe00581c6aa2b7a29e420b59430b5c72be22834bcb9551f"
         },
         "js_accounts.controller.js": {
             "filename": "js/accounts.controller.js",
@@ -70,7 +78,11 @@
         },
         "js_etas.controller.js": {
             "filename": "js/etas.controller.js",
-            "version": "6919858303e60c250dec811bc437f0bb569d64952bf20efc7fcc6a1b8f0476b6"
+            "version": "62ab18742cf729bcc17683f3d1e0566723c989662dd745358a1e26eeee7b2bed"
+        },
+        "js_friends.service.js": {
+            "filename": "js/friends.service.js",
+            "version": "ffc11e0ae10e75f7aeba9ddc898241986efb50f1340122f889e53a6d5f25c838"
         },
         "js_intro.controller.js": {
             "filename": "js/intro.controller.js",
@@ -78,11 +90,11 @@
         },
         "js_login-success.controller.js": {
             "filename": "js/login-success.controller.js",
-            "version": "997937394694bcf33dacd4caed8829521cdf7f5e780bc38b72a86bb3bfca4aae"
+            "version": "a854147d1480ec0ccc68947607949779557632cf68771718bcf1b01e748ccd9a"
         },
         "js_login.controller.js": {
             "filename": "js/login.controller.js",
-            "version": "ccd812dc18bcfcf882cea7944d9fd8f2f7ec21cafe313909a72aa65e78384c29"
+            "version": "dca6187cfc02bc2b224d770f440aca81752184f19f7a5b524dfa522550374358"
         },
         "js_services.js": {
             "filename": "js/services.js",
@@ -99,7 +111,9 @@
         "lib/lodash/lodash.js",
         "lib/angular/angular.js",
         "lib/openfb/openfb.js",
+        "lib/moment/moment.js",
         "lib/ngCordova/dist/ng-cordova.js",
+        "lib/angular-moment/angular-moment.js",
         "js/cordova-app-loader-complete.js",
         "lib/openfb/ngopenfb.js",
         "js/templates.js",
@@ -108,6 +122,7 @@
         "js/autoupdate.service.js",
         "js/controllers.js",
         "js/etas.controller.js",
+        "js/friends.service.js",
         "js/intro.controller.js",
         "js/login-success.controller.js",
         "js/login.controller.js",

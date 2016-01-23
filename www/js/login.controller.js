@@ -13,6 +13,7 @@
         vm.activate = activate;
         vm.title = 'Login';
         vm.login = login;
+        vm.loginWithDemo = loginWithDemo;
 
         activate();
 
@@ -29,10 +30,10 @@
             });
         }
 
-        function loginDemo() {
+        function loginWithDemo() {
             // register with the server
-            debugger;
-            //loginUser({}).then(goToDash);
+            window.localStorage['userId'] = 1;
+            $state.go('tab.dash');
         }
 
 

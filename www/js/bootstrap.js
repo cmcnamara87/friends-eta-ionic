@@ -114,7 +114,9 @@
     }
 //---------------------------------------------------------------------
     window.Manifest = {};
-    localStorage.removeItem('manifest');
+    if (location.origin === 'http://localhost:8100') {
+        localStorage.removeItem('manifest');
+    }
 // Step 1: Load manifest from localStorage
     var manifest = JSON.parse(localStorage.getItem('manifest'));
     console.log('stored manfiest', manifest);
