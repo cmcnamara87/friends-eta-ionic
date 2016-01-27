@@ -58,7 +58,7 @@
         },
         "js_templates.js": {
             "filename": "js/templates.js",
-            "version": "776f7f69b3aaeeaadb22ec5ad7950b6b61dfe6d2c44fe2cc344beac1530713cf"
+            "version": "a7085fb2bd487aae67852d663c52a0a60fc0267ba93dc895247aac91bc0ee478"
         },
         "js_app.js": {
             "filename": "js/app.js",
@@ -78,7 +78,7 @@
         },
         "js_etas.controller.js": {
             "filename": "js/etas.controller.js",
-            "version": "62ab18742cf729bcc17683f3d1e0566723c989662dd745358a1e26eeee7b2bed"
+            "version": "830885ca6617b9b890886bf97653dec39d8039487d2a9ea78131b086bb0dfc44"
         },
         "js_friends.service.js": {
             "filename": "js/friends.service.js",

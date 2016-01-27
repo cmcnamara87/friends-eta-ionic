@@ -33,6 +33,19 @@
             userId = window.localStorage['userId'];
             $ionicPlatform.ready(function () {
                 loadData(userId);
+
+                if(window.PushNotification) {
+                    var push = PushNotification.init({
+                        "ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {}
+                    });
+                    push.on('registration', function (data) {
+                        console.log('PN:', data);
+                        $http.post(ENV.apiEndpoint + 'users', {
+                            'id': userId,
+                            'push_token': data.registrationId
+                        });
+                    });
+                }
             });
         }
 
