@@ -63,7 +63,7 @@
         function ping(user) {
             $ionicLoading.show({
                 template: 'Pinged',
-                duration: 2
+                duration: 1000
             });
 
             return $http.post(ENV.apiEndpoint + 'users/' + userId + '/ping/' + user.id, {});
