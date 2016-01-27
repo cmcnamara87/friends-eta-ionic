@@ -47,7 +47,9 @@
                             //    'push_token': data.registrationId
                             //});
                         },
-                        console.error,
+                        function(error) {
+                            console.log("ERROR!!!!!'", error);
+                        },
                         {
                             "badge": "true",
                             "sound": "true",
