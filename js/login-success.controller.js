@@ -25,6 +25,9 @@
                     user.fb_id = user.id;
                     delete user.id;
 
+                    // fix up pictures
+                    user.picture = user.picture.data.url;
+
                     // save the user
                     return loginUser(user);
                 })
@@ -35,7 +38,7 @@
         function getProfile() {
             return ngFB.api({
                 path: '/me', params: {
-                    fields: 'email,name'
+                    fields: 'email,name,picture'
                 }
             });
         }

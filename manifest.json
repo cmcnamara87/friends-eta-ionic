@@ -58,7 +58,7 @@
         },
         "js_templates.js": {
             "filename": "js/templates.js",
-            "version": "f90002d33d54d0718ec582e3cae51da2f2e9717a650ac2ff5a854640e02ac100"
+            "version": "f7161e1df86a513ef941241c7436186cc49b55071ee009757dc1af959ee0be6a"
         },
         "js_app.js": {
             "filename": "js/app.js",
@@ -90,7 +90,7 @@
         },
         "js_login-success.controller.js": {
             "filename": "js/login-success.controller.js",
-            "version": "a854147d1480ec0ccc68947607949779557632cf68771718bcf1b01e748ccd9a"
+            "version": "77e37bd20341cfdd37361bd849b8d929f573cebaa0ba682ca80c33f7262d0f6a"
         },
         "js_login.controller.js": {
             "filename": "js/login.controller.js",
