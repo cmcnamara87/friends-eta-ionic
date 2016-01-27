@@ -9,7 +9,8 @@
     function EtasController($http, ENV, $ionicPlatform, $scope,
                             $state,
                             $q,
-                            $cordovaGeolocation) {
+                            $cordovaGeolocation,
+                            $ionicLoading) {
         /* jshint validthis: true */
         var vm = this;
 
@@ -64,9 +65,10 @@
                 template: 'Pinged',
                 duration: 2
             });
-            
+
             return $http.post(ENV.apiEndpoint + 'users/' + userId + '/ping/' + user.id, {});
         }
+
         /**
          * Send an invite message to users via share sheet
          */
