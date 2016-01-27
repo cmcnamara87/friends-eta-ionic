@@ -32,7 +32,7 @@
             }
             userId = window.localStorage['userId'];
             $ionicPlatform.ready(function () {
-                loadData(userId);
+                //loadData(userId);
 
                 if (window.pushNotification) {
                     pushNotification.register(
