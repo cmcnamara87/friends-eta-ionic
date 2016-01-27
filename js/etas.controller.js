@@ -18,6 +18,7 @@
         vm.doRefresh = doRefresh;
         vm.state = 'LOADING';
         vm.invite = invite;
+        vm.ping = ping;
 
         var userId = 1;
 
@@ -58,6 +59,14 @@
             });
         }
 
+        function ping(user) {
+            $ionicLoading.show({
+                template: 'Pinged',
+                duration: 2
+            });
+            
+            return $http.post(ENV.apiEndpoint + 'users/' + userId + '/ping/' + user.id, {});
+        }
         /**
          * Send an invite message to users via share sheet
          */

@@ -5,7 +5,8 @@
                 on-refresh="vm.doRefresh()">
         </ion-refresher>
         <ion-list>
-            <ion-item ng-repeat="friend in vm.friends" class="item-avatar item-text-wrap" style="padding-right:110px;">
+            <ion-item ng-repeat="friend in vm.friends" class="item-avatar item-text-wrap" style="padding-right:110px;"
+                    on-double-tap="vm.ping(friend)">
                 <img src="{{ friend.picture }}" ng-show="friend.picture" style="border-radius:3px;">
                 <div style="width:40px;height:40px;background-color:#eee;position: absolute;top: 16px;left: 16px;border-radius:3px"
                         ng-hide="friend.picture"></div>
