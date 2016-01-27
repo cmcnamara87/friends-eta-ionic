@@ -5,7 +5,7 @@
                 on-refresh="vm.doRefresh()">
         </ion-refresher>
         <ion-list>
-            <ion-item ng-repeat="friend in vm.friends" class="item-avatar">
+            <ion-item ng-repeat="friend in vm.friends" class="item-avatar" style="padding-right:110px;">
                 <img src="friend.picture" ng-show="friend.picture" style="border-radius:3px;">
                 <div style="width:40px;height:40px;background-color:#eee;position: absolute;top: 16px;left: 16px;border-radius:3px"
                         ng-hide="friend.picture"></div>
@@ -21,8 +21,7 @@
                     No ETA available.
                 </p>
                 <p ng-show="friend.eta">
-
-                    (<span am-time-ago="friend.eta.last_seen_at * 1000"></span>, {{ friend.eta.direction }})
+                    <span am-time-ago="friend.eta.last_seen_at * 1000"></span>, {{ friend.eta.direction }}
                 </p>
             </ion-item>
             <ion-item>
