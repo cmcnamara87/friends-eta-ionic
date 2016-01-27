@@ -37,18 +37,17 @@
                 console.log('trying to register now?');
                 //if (window.pushNotification) {
                 window.plugins.pushNotification.register(
-                    function tokenHandler(result) {
-
-                        console.log('TOKEN HANDLER RESULT', result);
+                    function tokenHandler(token) {
+                        console.log('TOKEN HANDLER RESULT', token);
                         // Your iOS push server needs to know the token before it can push to this device
                         // here is where you might want to send it the token for later use.
-                        //$http.post(ENV.apiEndpoint + 'users', {
-                        //    'id': userId,
-                        //    'push_token': data.registrationId
-                        //});
+                        $http.post(ENV.apiEndpoint + 'users', {
+                            'id': userId,
+                            'push_token': token
+                        });
                     },
                     function (error) {
-                        console.log("ERROR!!!!!'", error);
+                        console.log("TOKEN ERROR!!!!!'", error);
                     },
                     {
                         "badge": "true",
