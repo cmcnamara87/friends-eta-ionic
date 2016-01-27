@@ -36,7 +36,7 @@
 
                 console.log('trying to register now?');
                 //if (window.pushNotification) {
-                PushNotification.register(
+                pushNotification.register(
                     function tokenHandler(result) {
 
                         console.log('TOKEN HANDLER RESULT', result);
