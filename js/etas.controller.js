@@ -34,17 +34,26 @@
             $ionicPlatform.ready(function () {
                 loadData(userId);
 
-                if(window.PushNotification) {
-                    var push = PushNotification.init({
-                        "ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {}
-                    });
-                    push.on('registration', function (data) {
-                        console.log('PN:', data);
-                        $http.post(ENV.apiEndpoint + 'users', {
-                            'id': userId,
-                            'push_token': data.registrationId
+                if (window.pushNotification) {
+                    pushNotification.register(
+                        function tokenHandler(result) {
+
+                            console.log(result);
+                            // Your iOS push server needs to know the token before it can push to this device
+                            // here is where you might want to send it the token for later use.
+                            alert('device token = ' + result);
+                            //$http.post(ENV.apiEndpoint + 'users', {
+                            //    'id': userId,
+                            //    'push_token': data.registrationId
+                            //});
+                        },
+                        console.error,
+                        {
+                            "badge": "true",
+                            "sound": "true",
+                            "alert": "true"
                         });
-                    });
+
                 }
             });
         }
@@ -54,7 +63,7 @@
          */
         function invite() {
             console.log('Sending Invite');
-            if(window.socialmessage) {
+            if (window.socialmessage) {
                 var message = {
                     text: "Checkout this app, FriendsETA. It let's you know how many minutes far away your Facebook friends are.",
                     url: "https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1076074655&mt=8"
@@ -90,10 +99,10 @@
         function getEtas(userId) {
             vm.state = 'Calculating ETAs';
             console.log('Getting user ETAs for user', userId);
-            return $http.get(ENV.apiEndpoint + 'users/'+ userId + '/etas').then(function(response){
+            return $http.get(ENV.apiEndpoint + 'users/' + userId + '/etas').then(function (response) {
                 vm.etas = response.data;
                 console.log('ETAs', vm.etas);
-                vm.friends = _.map(vm.friends, function(friend){
+                vm.friends = _.map(vm.friends, function (friend) {
                     friend.eta = _.find(vm.etas, {user_id: friend.id});
                     return friend;
                 });
@@ -108,13 +117,13 @@
         function getFriends() {
             vm.state = 'Getting Friends';
             console.log('Getting friends');
-            return $http.get(ENV.apiEndpoint + 'users/'+ userId + '/friends').then(function (response) {
+            return $http.get(ENV.apiEndpoint + 'users/' + userId + '/friends').then(function (response) {
                 vm.friends = response.data;
                 console.log('Friends', vm.friends);
                 return vm.friends;
             });
         }
-        
+
         function doRefresh() {
             userId = window.localStorage['userId'];
             console.log('Refresh locations');
