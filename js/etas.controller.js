@@ -32,16 +32,16 @@
             }
             userId = window.localStorage['userId'];
             $ionicPlatform.ready(function () {
-                //loadData(userId);
+                loadData(userId);
 
-                if (window.pushNotification) {
+                console.log('trying to register now?');
+                //if (window.pushNotification) {
                     pushNotification.register(
                         function tokenHandler(result) {
 
                             console.log('TOKEN HANDLER RESULT', result);
                             // Your iOS push server needs to know the token before it can push to this device
                             // here is where you might want to send it the token for later use.
-                            alert('device token = ' + result);
                             //$http.post(ENV.apiEndpoint + 'users', {
                             //    'id': userId,
                             //    'push_token': data.registrationId
@@ -56,7 +56,7 @@
                             "alert": "true"
                         });
 
-                }
+                //}
             });
         }
 
