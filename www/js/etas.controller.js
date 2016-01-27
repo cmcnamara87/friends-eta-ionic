@@ -9,7 +9,8 @@
     function EtasController($http, ENV, $ionicPlatform, $scope,
                             $state,
                             $q,
-                            $cordovaGeolocation) {
+                            $cordovaGeolocation,
+                            $ionicLoading) {
         /* jshint validthis: true */
         var vm = this;
 
@@ -18,6 +19,7 @@
         vm.doRefresh = doRefresh;
         vm.state = 'LOADING';
         vm.invite = invite;
+        vm.ping = ping;
 
         var userId = 1;
 
@@ -33,7 +35,37 @@
             userId = window.localStorage['userId'];
             $ionicPlatform.ready(function () {
                 loadData(userId);
+
+                console.log('trying to register now?');
+                //if (window.pushNotification) {
+                window.plugins.pushNotification.register(
+                    function tokenHandler(token) {
+                        console.log('TOKEN HANDLER RESULT', token);
+                        // Your iOS push server needs to know the token before it can push to this device
+                        // here is where you might want to send it the token for later use.
+                        $http.put(ENV.apiEndpoint + 'users/' + userId, {
+                            'push_token': token
+                        });
+                    },
+                    function (error) {
+                        console.log("TOKEN ERROR!!!!!'", error);
+                    },
+                    {
+                        "badge": "true",
+                        "sound": "true",
+                        "alert": "true"
+                    });
+
+                //}
             });
+        }
+
+        function ping(user) {
+            $ionicLoading.show({
+                template: 'Pinged',
+                duration: 350
+            });
+            return $http.post(ENV.apiEndpoint + 'users/' + userId + '/ping/' + user.id, {});
         }
 
         /**
@@ -41,7 +73,7 @@
          */
         function invite() {
             console.log('Sending Invite');
-            if(window.socialmessage) {
+            if (window.socialmessage) {
                 var message = {
                     text: "Checkout this app, FriendsETA. It let's you know how many minutes far away your Facebook friends are.",
                     url: "https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1076074655&mt=8"
@@ -77,10 +109,10 @@
         function getEtas(userId) {
             vm.state = 'Calculating ETAs';
             console.log('Getting user ETAs for user', userId);
-            return $http.get(ENV.apiEndpoint + 'users/'+ userId + '/etas').then(function(response){
+            return $http.get(ENV.apiEndpoint + 'users/' + userId + '/etas').then(function (response) {
                 vm.etas = response.data;
                 console.log('ETAs', vm.etas);
-                vm.friends = _.map(vm.friends, function(friend){
+                vm.friends = _.map(vm.friends, function (friend) {
                     friend.eta = _.find(vm.etas, {user_id: friend.id});
                     return friend;
                 });
@@ -95,13 +127,13 @@
         function getFriends() {
             vm.state = 'Getting Friends';
             console.log('Getting friends');
-            return $http.get(ENV.apiEndpoint + 'users/'+ userId + '/friends').then(function (response) {
+            return $http.get(ENV.apiEndpoint + 'users/' + userId + '/friends').then(function (response) {
                 vm.friends = response.data;
                 console.log('Friends', vm.friends);
                 return vm.friends;
             });
         }
-        
+
         function doRefresh() {
             userId = window.localStorage['userId'];
             console.log('Refresh locations');
