@@ -27,9 +27,7 @@
 
         activate();
 
-        $ionicPlatform.on("resume", function(event) {
-            document.addEventListener("deviceready", loadData, false);
-        });
+        $ionicPlatform.on("resume", loadData.bind(null, userId));
 
         ////////
 
