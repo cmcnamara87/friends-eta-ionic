@@ -14,8 +14,7 @@
                 <div style="width:40px;height:40px;background-color:#eee;position: absolute;top: 16px;left: 16px;border-radius:3px"
                         ng-hide="friend.picture"></div>
 
-                <div style="width:80px;height:40px;background-color:#eee;position: absolute;top: 16px;right: 16px;border-radius:3px;
-                line-height:40px;text-align:center;" ng-show="friend.eta">
+                <div class="eta-badge" ng-class="vm.getDirectionClass(friend.eta)" ng-show="friend.eta">
                     <span>{{friend.eta.eta / 60 | number:0}} min</span>
                 </div>
 

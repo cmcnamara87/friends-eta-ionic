@@ -9741,3 +9741,20 @@ a.button {
     display: table-cell;
     vertical-align: middle;
     text-align: center; }
+
+.eta-badge {
+  width: 65px;
+  height: 40px;
+  background-color: #eee;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border-radius: 3px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 14px; }
+  .eta-badge.towards {
+    background-color: #4ECDC4;
+    color: white; }
+  .eta-badge.away {
+    background-color: lightblue; }
