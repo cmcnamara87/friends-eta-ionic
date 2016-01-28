@@ -5,27 +5,32 @@
                 on-refresh="vm.doRefresh()">
         </ion-refresher>
         <ion-list>
-            <ion-item style="background-color: lightyellow">
-                Double tap a user to ping.
+            <ion-item style="background-color: lightyellow;padding:10px 16px;">
+                <i class="icon-info"></i> <small>Double tap a user to ping.</small>
             </ion-item>
-            <ion-item ng-repeat="friend in vm.friends" class="item-avatar item-text-wrap" style="padding-right:110px;"
-                    on-double-tap="vm.ping(friend)">
-                <img src="{{ friend.picture }}" ng-show="friend.picture" style="border-radius:3px;">
-                <div style="width:40px;height:40px;background-color:#eee;position: absolute;top: 16px;left: 16px;border-radius:3px"
-                        ng-hide="friend.picture"></div>
-
-                <div class="eta-badge" ng-class="vm.getDirectionClass(friend.eta)" ng-show="friend.eta">
-                    <span>{{friend.eta.eta / 60 | number:0}} min</span>
+            <div ng-repeat="(status, friends) in vm.friends">
+                <div class="item item-divider" style="text-transform: capitalize">
+                    {{ status }}
                 </div>
+                <ion-item ng-repeat="friend in friends"  class="item-avatar item-text-wrap" style="padding-right:110px;"
+                           on-double-tap="vm.ping(friend)">
+                    <img src="{{ friend.picture }}" ng-show="friend.picture" style="border-radius:3px;">
+                    <div style="width:40px;height:40px;background-color:#eee;position: absolute;top: 16px;left: 16px;border-radius:3px"
+                         ng-hide="friend.picture"></div>
 
-                <h2>{{friend.name}}</h2>
-                <p ng-hide="friend.eta">
-                    No ETA available.
-                </p>
-                <p ng-show="friend.eta">
-                    <span am-time-ago="friend.eta.last_seen_at * 1000"></span>, {{ friend.eta.direction }}
-                </p>
-            </ion-item>
+                    <div class="eta-badge" ng-class="vm.getDirectionClass(friend.eta)" ng-show="friend.eta">
+                        <span>{{friend.eta.eta / 60 | number:0}} min</span>
+                    </div>
+
+                    <h2>{{friend.name}}</h2>
+                    <p ng-hide="friend.eta">
+                        No ETA available.
+                    </p>
+                    <p ng-show="friend.eta">
+                        <span am-time-ago="friend.eta.last_seen_at * 1000"></span>, {{ friend.eta.direction }}
+                    </p>
+                </ion-item>
+            </div>
             <ion-item>
                 <button class="button button-balanced button-block"
                         ng-click="vm.invite()">
