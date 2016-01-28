@@ -25,8 +25,6 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
-
-
 .onboarding {
   .scroll-content {
     display: table !important;
@@ -39,4 +37,25 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     text-align: center;
   }
   text-align: center;
+}
+
+.eta-badge {
+  width: 65px;
+  height: 40px;
+  background-color: #eee;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border-radius: 3px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 14px;
+
+  &.towards {
+    background-color: $balanced;
+    color: white;
+  }
+  &.away {
+    background-color: lightblue;
+  }
 }

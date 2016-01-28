@@ -20,6 +20,7 @@
         vm.state = 'LOADING';
         vm.invite = invite;
         vm.ping = ping;
+        vm.getDirectionClass = getDirectionClass;
 
         var userId = 1;
 
@@ -136,6 +137,13 @@
             userId = window.localStorage['userId'];
             console.log('Refresh locations');
             loadData(userId);
+        }
+
+        function getDirectionClass(eta) {
+            if (!eta || !eta.direction) {
+                return '';
+            }
+            return eta.direction;
         }
 
     }
