@@ -13,6 +13,7 @@
                             $ionicLoading) {
         /* jshint validthis: true */
         var vm = this;
+        var friendsData = [];
 
         vm.activate = activate;
         vm.title = 'Etas';
@@ -25,6 +26,10 @@
         var userId = 1;
 
         activate();
+
+        $ionicPlatform.on("resume", function(event) {
+            loadData();
+        });
 
         ////////
 
@@ -111,10 +116,11 @@
             return $http.get(ENV.apiEndpoint + 'users/' + userId + '/etas').then(function (response) {
                 vm.etas = response.data;
                 console.log('ETAs', vm.etas);
-                vm.friends = _.map(vm.friends, function (friend) {
+                friendsData = _.map(friendsData, function (friend) {
                     friend.eta = _.find(vm.etas, {user_id: friend.id});
                     return friend;
                 });
+                vm.friends = groupFriends(friendsData);
                 $scope.$broadcast('scroll.refreshComplete');
             });
         }
@@ -127,10 +133,26 @@
             vm.state = 'Getting Friends';
             console.log('Getting friends');
             return $http.get(ENV.apiEndpoint + 'users/' + userId + '/friends').then(function (response) {
-                vm.friends = response.data;
+                friendsData = response.data;
+                vm.friends = groupFriends(friendsData);
                 console.log('Friends', vm.friends);
                 return vm.friends;
             });
+        }
+
+        function groupFriends(friendsData) {
+            return _(friendsData).groupBy(function(friend) {
+                var now = new Date();
+                var hoursAgo = 10;
+                var yesterday = now.getTime() / 1000  - (hoursAgo * 60 * 60);
+                if(!friend.eta) {
+                    return 'offline';
+                }
+                if(friend.eta.last_seen_at < yesterday) {
+                    return 'offline';
+                }
+                return 'online';
+            }).value();
         }
 
         function doRefresh() {
