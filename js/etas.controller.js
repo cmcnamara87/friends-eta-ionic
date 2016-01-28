@@ -28,9 +28,7 @@
         activate();
 
         $ionicPlatform.on("resume", function(event) {
-            $ionicPlatform.ready(function () {
-                loadData();
-            });
+            document.addEventListener("deviceready", loadData, false);
         });
 
         ////////
