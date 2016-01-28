@@ -35,28 +35,26 @@
             userId = window.localStorage['userId'];
             $ionicPlatform.ready(function () {
                 loadData(userId);
-
                 console.log('trying to register now?');
-                //if (window.pushNotification) {
-                window.plugins.pushNotification.register(
-                    function tokenHandler(token) {
-                        console.log('TOKEN HANDLER RESULT', token);
-                        // Your iOS push server needs to know the token before it can push to this device
-                        // here is where you might want to send it the token for later use.
-                        $http.put(ENV.apiEndpoint + 'users/' + userId, {
-                            'push_token': token
+                if (window.plugins && window.plugins.pushNotification) {
+                    window.plugins.pushNotification.register(
+                        function tokenHandler(token) {
+                            console.log('TOKEN HANDLER RESULT', token);
+                            // Your iOS push server needs to know the token before it can push to this device
+                            // here is where you might want to send it the token for later use.
+                            $http.put(ENV.apiEndpoint + 'users/' + userId, {
+                                'push_token': token
+                            });
+                        },
+                        function (error) {
+                            console.log("TOKEN ERROR!!!!!'", error);
+                        },
+                        {
+                            "badge": "true",
+                            "sound": "true",
+                            "alert": "true"
                         });
-                    },
-                    function (error) {
-                        console.log("TOKEN ERROR!!!!!'", error);
-                    },
-                    {
-                        "badge": "true",
-                        "sound": "true",
-                        "alert": "true"
-                    });
-
-                //}
+                }
             });
         }
 
