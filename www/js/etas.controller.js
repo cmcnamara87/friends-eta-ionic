@@ -27,9 +27,7 @@
 
         activate();
 
-        $ionicPlatform.on("resume", function(event) {
-            loadData();
-        });
+        $ionicPlatform.on("resume", loadData.bind(null, userId));
 
         ////////
 
