@@ -99,7 +99,6 @@
                 .getCurrentPosition(posOptions);
         }
 
-
         function sendLocation(userId, position) {
             vm.state = 'Sending Your Location';
             var lat = position.coords.latitude;
@@ -139,18 +138,21 @@
         }
 
         function groupFriends(friendsData) {
-            return _(friendsData).groupBy(function(friend) {
+            var groups = {
+                online: [],
+                offline: []
+            };
+            _.each(friendsData, function(friend) {
                 var now = new Date();
-                var hoursAgo = 10;
-                var yesterday = now.getTime() / 1000  - (hoursAgo * 60 * 60);
-                if(!friend.eta) {
-                    return 'offline';
+                var hoursAgo = 20;
+                var cutoff = now.getTime() / 1000 - (hoursAgo * 60 * 60); // 20 hours ago
+                if (!friend.eta || friend.eta.last_seen_at < cutoff) {
+                    groups.offline.push(friend);
+                    return;
                 }
-                if(friend.eta.last_seen_at < yesterday) {
-                    return 'offline';
-                }
-                return 'online';
-            }).value();
+                return groups.online.push(friend);
+            });
+            return groups;
         }
 
         function doRefresh() {
