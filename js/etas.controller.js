@@ -18,7 +18,7 @@
         vm.activate = activate;
         vm.title = 'Etas';
         vm.doRefresh = doRefresh;
-        vm.state = 'LOADING';
+        vm.state = 'Loading...';
         vm.invite = invite;
         vm.ping = ping;
         vm.getDirectionClass = getDirectionClass;
