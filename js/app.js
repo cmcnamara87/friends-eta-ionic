@@ -31,9 +31,7 @@ angular.module('friendsEta', ['ionic', 'ngOpenFB', 'templates',
                 }
             });
 
-            $ionicPlatform.on('resume', function(){
-                friendsService.updateFriendsFromFacebook();
-            });
+            $ionicPlatform.on('resume', friendsService.updateFriendsFromFacebook);
 
             // in app browser
             if (window.cordova) {
