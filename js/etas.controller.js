@@ -13,8 +13,7 @@
                             $ionicLoading) {
         /* jshint validthis: true */
         var vm = this;
-        var friendsData = [],
-            userId;
+        var friendsData = [];
 
         vm.activate = activate;
         vm.title = 'Etas';
@@ -24,10 +23,11 @@
         vm.ping = ping;
         vm.getDirectionClass = getDirectionClass;
 
+        var userId = 1;
 
+        activate();
 
-        $ionicPlatform.on('$ionicView.loaded', activate);
-        $ionicPlatform.on('resume', _.partial(loadData, userId));
+        $ionicPlatform.on("resume", loadData.bind(null, userId));
 
         ////////
 
@@ -39,38 +39,27 @@
             userId = window.localStorage['userId'];
             $ionicPlatform.ready(function () {
                 loadData(userId);
-                setupPushNotifications();
-            });
-        }
-
-        function setupPushNotifications() {
-            if (window.plugins && window.plugins.pushNotification) {
-                window.plugins.pushNotification.register(
-                    function tokenHandler(token) {
-                        console.log('TOKEN HANDLER RESULT', token);
-                        // Your iOS push server needs to know the token before it can push to this device
-                        // here is where you might want to send it the token for later use.
-                        $http.put(ENV.apiEndpoint + 'users/' + userId, {
-                            'push_token': token
+                console.log('trying to register now?');
+                if (window.plugins && window.plugins.pushNotification) {
+                    window.plugins.pushNotification.register(
+                        function tokenHandler(token) {
+                            console.log('TOKEN HANDLER RESULT', token);
+                            // Your iOS push server needs to know the token before it can push to this device
+                            // here is where you might want to send it the token for later use.
+                            $http.put(ENV.apiEndpoint + 'users/' + userId, {
+                                'push_token': token
+                            });
+                        },
+                        function (error) {
+                            console.log("TOKEN ERROR!!!!!'", error);
+                        },
+                        {
+                            "badge": "true",
+                            "sound": "true",
+                            "alert": "true"
                         });
-                    },
-                    function (error) {
-                        console.log("TOKEN ERROR!!!!!'", error);
-                    },
-                    {
-                        "badge": "true",
-                        "sound": "true",
-                        "alert": "true"
-                    });
-            }
-        }
-
-        function loadData(userId) {
-            getFriends()
-                .then(getLocation)
-                .then(sendLocation.bind(null, userId))
-                .then(getEtas.bind(null, userId))
-                .then(finished);
+                }
+            });
         }
 
         function ping(user) {
@@ -95,6 +84,14 @@
             }
         }
 
+        function loadData(userId) {
+            getFriends()
+                .then(getLocation)
+                .then(sendLocation.bind(null, userId))
+                .then(getEtas.bind(null, userId))
+                .then(finished);
+        }
+
         function getLocation() {
             vm.state = 'Getting Your Location';
             var posOptions = {timeout: 10000, enableHighAccuracy: false};
@@ -108,21 +105,6 @@
             var long = position.coords.longitude;
             console.log('Sending location', lat, long);
             return $http.post(ENV.apiEndpoint + 'locations', {'user_id': userId, 'lat': lat, 'long': long});
-        }
-
-        /**
-         * Get the friends from server
-         * @returns {*}
-         */
-        function getFriends() {
-            vm.state = 'Getting Friends';
-            console.log('Getting friends');
-            return $http.get(ENV.apiEndpoint + 'users/' + userId + '/friends').then(function (response) {
-                friendsData = response.data;
-                vm.friends = groupFriends(friendsData);
-                console.log('Friends', vm.friends);
-                return vm.friends;
-            });
         }
 
         function getEtas(userId) {
@@ -142,6 +124,17 @@
 
         function finished() {
             vm.state = 'Friends';
+        }
+
+        function getFriends() {
+            vm.state = 'Getting Friends';
+            console.log('Getting friends');
+            return $http.get(ENV.apiEndpoint + 'users/' + userId + '/friends').then(function (response) {
+                friendsData = response.data;
+                vm.friends = groupFriends(friendsData);
+                console.log('Friends', vm.friends);
+                return vm.friends;
+            });
         }
 
         function groupFriends(friendsData) {
