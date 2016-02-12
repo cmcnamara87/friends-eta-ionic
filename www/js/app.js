@@ -12,7 +12,7 @@ angular.module('friendsEta', ['ionic', 'ngOpenFB', 'templates',
                    autoupdate, friendsService) {
         // if not logged in, go to login page
 
-        // Check for updates
+        // update successful
         autoupdate.bootstrapOk();
 
         $ionicPlatform.ready(function () {

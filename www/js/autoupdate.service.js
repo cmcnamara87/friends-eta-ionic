@@ -49,7 +49,7 @@
         });
 
         // 1. On launch
-        check();
+        //check();
 
         // 2. Cordova: On resume
         fs.deviceready.then(function () {

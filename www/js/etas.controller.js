@@ -10,7 +10,7 @@
                             $state,
                             $q,
                             $cordovaGeolocation,
-                            $ionicLoading) {
+                            $ionicLoading, autoupdate) {
         /* jshint validthis: true */
         var vm = this;
         var friendsData = [];
@@ -38,6 +38,9 @@
             }
             userId = window.localStorage['userId'];
             $ionicPlatform.ready(function () {
+                // Check for update
+                autoupdate.check();
+
                 loadData(userId);
                 console.log('trying to register now?');
                 if (window.plugins && window.plugins.pushNotification) {
