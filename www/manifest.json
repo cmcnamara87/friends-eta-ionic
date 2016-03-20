@@ -62,7 +62,7 @@
         },
         "js_app.js": {
             "filename": "js/app.js",
-            "version": "4459a9c6aa7430552dfbbc95e85459b91a070eeec6d68a5f2b189dd8558a09fe"
+            "version": "f40e8a288f6e552a5dce85cc60c14517de152ef04197a199903a3a16ec97833e"
         },
         "js_accounts.controller.js": {
             "filename": "js/accounts.controller.js",
@@ -70,7 +70,7 @@
         },
         "js_autoupdate.service.js": {
             "filename": "js/autoupdate.service.js",
-            "version": "a20e41789539d14d306c4cba8faefb77b8570c90ac30ab2d27beb8e88e54f7de"
+            "version": "34045a3dcd821a6fca750bcf492ab129da227b80ceb898f5e53835a0093b75fd"
         },
         "js_controllers.js": {
             "filename": "js/controllers.js",
@@ -78,7 +78,7 @@
         },
         "js_etas.controller.js": {
             "filename": "js/etas.controller.js",
-            "version": "eda89177524cf2699a36a945b8cef255bf7d81f5194f0c119da6be7666359722"
+            "version": "ee10976b48d5614a73bae0afd4ad1b4d1817f7d5dea2f76aee357e9ec3fdd423"
         },
         "js_friends.service.js": {
             "filename": "js/friends.service.js",
